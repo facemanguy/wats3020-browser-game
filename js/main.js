@@ -2,11 +2,15 @@
 /* Build a tic tac toe game for two players. */
 
 // TODO: declare a global variable named 'game` - it will reference the instance of the current game
-
+let game;
 // TODO: Create a class called `Player`. The `constructr()` should look for a
 // parameter called `token` and should set `this.token` as a property of
 // the class.
-
+class Player{
+    constructor(token){
+        this.token = token;
+    }
+}
 
 // Tic Tac Toe Game Class
 class TicTacToe {
@@ -22,29 +26,29 @@ class TicTacToe {
       // progress.
 
       // TODO: Set `this.currentPlayer` equal to `null`
-
+        this.currentPlayer = null;
       // TODO: Set `this.gameStatus` equal to `null`
-
+        this.gameStatus = null;
       // TODO: Set `this.winner` equal to `null`
-
+        this.winner = null;
       // TODO: Set `this.moveCount` equal to `0`
-
+        this.moveCount = 0;
       // TODO: Set up DOM elements used in game as Class properties
 
       // TODO: Set `this.startPrompt` equal to the `#start-prompt` element
-
+        this.startPrompt = document.querySelector('#start-prompt');
       // TODO: Set `this.movePrompt` equal to the `#move-prompt` element
-
+        this.movePrompt = document.querySelector('#move-prompt');
       // TODO: Set `this.currentPlayerToken` equal to the `#player-token` element
-
+        this.currentPlayerToken = document.querySelector('#player-token');
       // TODO: Set `this.gameboard` equal to the `#gameboard` element
-
+        this.gameboard = document.querySelector('#gameboard');
       // TODO: Set `this.winScreen` equal to the `#win-screen` element
-
+        this.winScreen = document.querySelector('#win-screen');
       // TODO: Set `this.winnerToken` equal to the `#winner-token` element
-
+        this.winnerToken = document.querySelector('#winner-token');
       // TODO: Set `this.drawScreen` equal to the `#draw-screen` element
-
+        this.drawScreen = document.querySelector('#draw-screen');
       // Initialize an Array representing the starting state of the game board.
       // This is provided for you. We can access the spaces on the board using
       // (X, Y) coordinates as `this.gameState[x][y]`, which is how the game
@@ -173,30 +177,33 @@ class TicTacToe {
   }
   setUpBoard(){
       // TODO: Clear all content from the existing `this.gameboard` element.
-
+        this.gameboard.innerHTML = '';
       // We must draw the game board by using a loop to create rows with
       // tiles in them. We want to create the same structure as we see in the
       // index.html file.
 
       // TODO: Create a `for` loop that will loop three times. The counter
       // variable in this loop should be called `i`.
+        for (let i = 0; i < 3; i++){
+
+        
           // TODO: Create a new div element called `newRow
-
+            let newRow = document.createElement('div');
           // TODO: Set the `class` attribute on `newRow` to "row".
-
+            newRow.setAttribute('class','row');
           // TODO: Create another `for` loop to make the colums to contain the
           // tiles. This `for` loop should also loop 3 times. The counter
           // variable in this loop should be called `j`.
-
+            for (let j = 0; j < 3; j++){
               // TODO: Create a new `div` element called `newCol`.
-
+                let newCol = document.createElement('div');
               // TODO: Set the `class` attribute on `newCol` to "col-xs-3".
-
+                newCol.setAttribute('class','col-xs-3');
               // TODO: Create a new `span` element called `newTile`.
-
+                let newTile = document.createElement('span');
               // TODO: Set the `class` attribute on `newTile` to equal the
               // placeholder styles ("tile fas fa-question-sign").
-
+                newTile.setAttribute('class','fas fa-question tile');
               // TODO: Set the `data-x` attribute on the `newTile` element
               // equal to `i`.
 
@@ -209,11 +216,11 @@ class TicTacToe {
               // TODO: Append `newCol` as a child to `newRow`.
 
           // NOTE: Your second `for` loop should end here.
-
+            }
           // TODO: Append the `newRow` element to `this.gameboard` as a child element.
 
       // NOTE: Your first `for` loop should end here.
-
+        }
       // TODO: Call `this.setUpTileListeners()` to add event listeners to the
       // `.tile` elements.
 
